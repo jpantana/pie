@@ -63,9 +63,9 @@ const printToDom = (divId, textToPrint) => {
 };
 
 
+
 const pieBuilder = () => {
     let domString = '';
-
     pies.forEach((pie) => {
         domString += `<div class="pieCard">`;
         domString +=   `<h1>${pie.name}</h1>`;
@@ -90,6 +90,7 @@ const pieBuilder = () => {
     // };
     printToDom('pies', domString);
 };
+
 
 
 const addPie = (name, ingredients, bakeTemp, drinkPairing, imageUrl, iceCream) => {
@@ -120,8 +121,18 @@ const addPie = (name, ingredients, bakeTemp, drinkPairing, imageUrl, iceCream) =
 //     return newArray;
 // };
 
+
+const buttonClick = () => {
+  console.log('We clicked a button!');
+};
+
+const buttonEvents = () => {
+  document.getElementById('Zoe').addEventListener('click', buttonClick);
+};
+
+
 const init = () => {
-   
+    buttonEvents();
     // addPie('Michael', 'cheese', 400, 'beer', 'https://cms.splendidtable.org/sites/default/files/styles/w2000/public/PA-Dutch-Apple-Pie_by_Keller_Keller-LEDE.jpg?itok=vWBLQ2mL', 'blueberry');
     pieBuilder();
     // questionPie();
@@ -130,6 +141,3 @@ const init = () => {
 };
 
 init();
-
-console.log(addPie);
-
