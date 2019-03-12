@@ -1,7 +1,46 @@
 body {
-    background-color: blue;
+    background-color: white;
 }
 
 img {
-    width: 100px;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: auto;
+    border: solid 1px grey;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+#pies {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+.pieCard {
+    margin: 30px;
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 400px;
+    min-height: 400px;
+    overflow: scroll;
+    padding: 10px;
+    background-image: linear-gradient(#eee, rgb(180, 179, 179));
+    border: 1px solid grey;
+    font-size: 1em;
+    text-align: center;
 }
