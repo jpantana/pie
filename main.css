@@ -31,6 +31,12 @@ h1 {
     font-size: 1.5em;
     text-transform: uppercase;
 }
+
+#instrutor-buttons {
+    text-align: center;
+
+}
+
 .pieCard {
     margin: 30px;
     min-width: 250px;

@@ -55,18 +55,14 @@ const pies = [
   },
 ];
 
-
-
 const printToDom = (divId, textToPrint) => {
     const selectedId = document.getElementById(divId);
     selectedId.innerHTML = textToPrint;
 };
 
-
-
-const pieBuilder = () => {
+const pieBuilder = (placeHolder) => {
     let domString = '';
-    pies.forEach((pie) => {
+    placeHolder.forEach((pie) => {
         domString += `<div class="pieCard">`;
         domString +=   `<h1>${pie.name}</h1>`;
         domString +=   `<img src="${pie.imageUrl}" alt='Image of ${pie.imageUrl}'>`;
@@ -76,18 +72,6 @@ const pieBuilder = () => {
         domString +=   `<p><strong>IceCream Pairing:</strong><br> ${pie.iceCream}</p>`;
         domString += `</div>`;
     })
-
-    // for (let i = 0; i < pies.length; i++) {
-    //     domString += `<div>`;
-    //     domString +=   `<h1>1. ${pies[i].name}</h1>`;
-    //     domString +=   `<h1>2. ${pies[i].ingredients}</h1>`;
-    //     domString +=   `<h1>3. ${pies[i].bakeTemp}</h1>`;
-    //     domString +=   `<h1>4. ${pies[i].drinkPairing}</h1>`;
-    //     domString +=   `<img src="${pies[i].imageUrl}=>`;
-    //     domString +=   `<h1>6. ${pies[i].iceCream}</h1>`;
-    //     domString += `</div>`;
-
-    // };
     printToDom('pies', domString);
 };
 
@@ -110,33 +94,37 @@ const addPie = (name, ingredients, bakeTemp, drinkPairing, imageUrl, iceCream) =
 };
 
 
-// const promptPie = [];
-// const questionPie = () => {
-//     let pieName = prompt("what is your favorite kind of pie?");
-//     let pieIngred = prompt("what is the main ingredient?");
-//     let bakeTemp = prompt("what is the baking temp?");
-//     let drinkPairing = prompt("what drink pairs best?");
-//     let iceCream = prompt('what icecream goes best with this pie?');
-//     const newArray = [pieName, pieIngred, bakeTemp, drinkPairing, iceCream];
-//     return newArray;
-// };
 
-
-const buttonClick = () => {
-  console.log('We clicked a button!');
+const buttonClick = (e) => {
+  const buttonId = e.target.id;
+  // console.log('We clicked a button!', e.target.id);
+  const selectedPies = [];
+  pies.forEach((pie) => {
+    if (pie.instructor === buttonId) {
+      selectedPies.push(pie);
+    } 
+  });
+    if (buttonId === 'All') {
+      pieBuilder(pies);
+    } else {
+      pieBuilder(selectedPies);
+    }
+  
 };
 
 const buttonEvents = () => {
   document.getElementById('Zoe').addEventListener('click', buttonClick);
+  document.getElementById('Michael').addEventListener('click', buttonClick);
+  document.getElementById('Saul').addEventListener('click', buttonClick);
+  document.getElementById('All').addEventListener('click', buttonClick);
+ 
 };
 
-
+ 
 const init = () => {
     buttonEvents();
-    // addPie('Michael', 'cheese', 400, 'beer', 'https://cms.splendidtable.org/sites/default/files/styles/w2000/public/PA-Dutch-Apple-Pie_by_Keller_Keller-LEDE.jpg?itok=vWBLQ2mL', 'blueberry');
-    pieBuilder();
-    // questionPie();
-    // addPie(newArray[0],newArray[1], newArray[2], newArray[3], newArray[4]);
+    pieBuilder(pies);
+
  
 };
 
