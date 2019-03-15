@@ -124,8 +124,6 @@ const buttonEvents = () => {
 const init = () => {
     buttonEvents();
     pieBuilder(pies);
-
- 
 };
 
 init();
